@@ -1,0 +1,115 @@
+﻿@model AngularProje.Models.Product
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html ng-app="Homeapp">
+
+<head>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Home Page</title>
+
+    <style>
+
+        .tableData {
+            border-left: solid 1px #D8C3C3;
+            border-top: solid 1px #D8C3C3;
+        }
+
+            .tableData tr {
+            }
+
+            .tableData td, .tableData th {
+                border-right: solid 1px #D8C3C3;
+                border-bottom: solid 1px #D8C3C3;
+                text-align: left;
+                padding: 5px;
+            }
+
+            .tableData td {
+            }
+
+            .tableData th {
+                background-color: #FAFAFA;
+                padding: 7px 5px;
+                border-bottom-color: #9C9C9C;
+            }
+
+        .odd {
+            background-color: #f3f3f3;
+        }
+
+        .even {
+            background-color: #ffffff;
+        }
+    </style>
+
+</head>
+<body class="table-bordered">
+
+    <h2>Product List</h2>
+    <div>
+        <div ng-controller="DisplayController">
+            Search: <input type="text" placeholder="Search Product" ng-model="searchText.ProductName" />
+            <br /><br />
+            <table class="tableData">
+                <tr>
+
+                    <th>Prroduct ID</th>
+
+                    <th>Product Name</th>
+
+                    <th>Price</th>
+
+                    <th>Stock</th>
+
+                    <th>Details</th>
+
+                    <th>Delete</th>
+
+                    <th>Update</th>
+
+                </tr>
+
+                <tr dir-paginate="e in getProduct  |filter: searchText | itemsPerPage:5   " ng-class-even="'even'" ng-class-odd="'odd'">
+
+                    <td>{{e.ProductID}}</td>
+
+                    <td>{{e.ProductName}}</td>
+
+                    <td>{{e.ProductPrice}}</td>
+
+                    <td>{{e.ProductStock}}</td>
+
+                    <td>{{e.ProductDetails}}</td>
+
+                    <td><input type="button" class="btn btn-danger" ng-click="deleterecord(e.ProductID)" value="Delete" /></td>
+
+                    <td><input type="button" class="btn btn-success" ng-click="updatemodal(e)" value="Update" /></td>
+
+                </tr>
+            </table>
+            <br />
+            <dir-pagination-controls></dir-pagination-controls>
+            <br />
+            <button class="btn btn-info" ng-click="newproduct()">Add Product</button>
+        </div>
+    </div>
+    <script src="~/js/controller.js"></script>
+    <script src="~/js/dirPagination.js"></script>
+</body>
+</html>
+
+
+
+

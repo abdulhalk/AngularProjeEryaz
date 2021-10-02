@@ -1,0 +1,54 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Modal Popup</h3>
+</div>
+<div class="modal-body" id="modal-body">
+    <!--{{product}}-->
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-6">
+
+                <div class="form-group">
+
+                    <label>Product Name</label>
+
+                    <input type="text" ng-model="product.ProductName" class="form-control" />
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Price</label>
+
+                    <input type="text" ng-model="product.ProductPrice" class="form-control" />
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Stock</label>
+
+                    <input type="text" ng-model="product.ProductStock" class="form-control" />
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Details</label>
+
+                    <input type="text" ng-model="product.ProductDetails" class="form-control" />
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="savedata()">{{btntext}}</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>
